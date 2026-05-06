@@ -1,0 +1,74 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 45;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(76, 136, 151, 0.16), transparent 32%),
+    linear-gradient(180deg, #020303 0%, #000 62%, #030403 100%);
+  color: rgba(226, 246, 244, 0.94);
+  isolation: isolate;
+}
+
+.scanline {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, transparent, rgba(132, 210, 215, 0.06), transparent);
+  background-size: 100% 7px, 100% 100%;
+  opacity: 0.52;
+  pointer-events: none;
+}
+
+.clockPanel {
+  display: grid;
+  width: min(820px, 78vw);
+  min-height: min(420px, 58vh);
+  place-items: center;
+  padding: clamp(28px, 5vw, 72px);
+  border: 1px solid rgba(151, 228, 229, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.005)),
+    rgba(3, 8, 8, 0.72);
+  box-shadow:
+    inset 0 0 52px rgba(0, 0, 0, 0.82),
+    0 0 48px rgba(84, 188, 201, 0.1);
+  text-align: center;
+}
+
+.kicker,
+.status {
+  color: rgba(151, 228, 229, 0.72);
+  font-size: clamp(13px, 1vw, 18px);
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.clock {
+  color: #e2fffb;
+  font-family: "Arial Narrow", "Roboto Condensed", "Oswald", monospace;
+  font-size: clamp(92px, 14vw, 210px);
+  font-variant-numeric: tabular-nums;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.9;
+  text-shadow:
+    0 0 16px rgba(151, 228, 229, 0.34),
+    0 0 44px rgba(151, 228, 229, 0.12);
+}
+
+.status {
+  color: rgba(240, 196, 79, 0.82);
+}
+
+@media (max-width: 900px) {
+  .clockPanel {
+    width: 86vw;
+  }
+}

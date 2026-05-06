@@ -1,0 +1,21 @@
+# 35 - Checklist Pré-Sprint 2
+
+- [ ] typecheck passa
+- [ ] unit tests passam
+- [ ] lint passa
+- [ ] build passa
+- [ ] e2e passa
+- [ ] /stage abre
+- [ ] /admin abre
+- [ ] login funciona
+- [ ] BroadcastChannel sincroniza
+- [ ] Arduino conecta COM6
+- [ ] PING retorna PONG
+- [ ] botão azul vira Grupo A
+- [ ] botão vermelho vira Grupo B
+- [ ] RESET_HW automático funciona
+- [ ] round 1 a 5 funciona
+- [ ] game_over funciona
+- [ ] assets carregam no build
+- [ ] tela cabe na resolução alvo
+- [ ] operador sabe o fluxo

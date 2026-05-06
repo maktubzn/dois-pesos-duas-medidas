@@ -1,0 +1,57 @@
+:root {
+  color-scheme: dark;
+  --cream: #f1e7cf;
+  --gold: #f0c44f;
+  --gold-dark: #7e5715;
+  --blue: #56d1ff;
+  --blue-deep: #063c78;
+  --blue-glow: rgba(72, 190, 255, 0.44);
+  --red: #d63842;
+  --red-deep: #600710;
+  --red-glow: rgba(214, 56, 66, 0.4);
+  --green: #48ff8f;
+  --green-glow: rgba(72, 255, 143, 0.32);
+  --stage-safe-x: clamp(44px, 4.5vw, 100px);
+  --card-w: clamp(320px, 17.7vw, 340px);
+  --card-top: clamp(250px, 23.2vh, 270px);
+  font-family:
+    "Arial Narrow", "Roboto Condensed", "Oswald", "Rajdhani", Impact,
+    Arial, sans-serif;
+  background: #000;
+  color: var(--cream);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+@media (max-width: 1320px) {
+  :root {
+    --stage-safe-x: clamp(18px, 3vw, 46px);
+    --card-w: clamp(250px, 21vw, 320px);
+  }
+}
+
+@media (max-width: 980px) {
+  :root {
+    --card-w: clamp(190px, 24vw, 250px);
+    --card-top: clamp(250px, 25vh, 280px);
+  }
+}

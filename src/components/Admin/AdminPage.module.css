@@ -1,0 +1,2285 @@
+/* ── Admin branco/preto minimalista ── */
+
+.adminShell,
+.loginShell {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #111111;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Harness 7 - painel operacional escuro reconstruido */
+
+.adminShell {
+  --h7-bg: #050608;
+  --h7-panel: #0d0f14;
+  --h7-panel-2: #151922;
+  --h7-line: rgba(255, 255, 255, 0.1);
+  --h7-text: #f6f1e7;
+  --h7-muted: rgba(246, 241, 231, 0.62);
+  --h7-gold: #d8a84f;
+  --h7-gold-2: #f3d58d;
+  --h7-green: #62d982;
+  --h7-red: #f36b6b;
+  --h7-amber: #f2b84b;
+  grid-template-columns: 92px minmax(0, 1fr);
+  background: linear-gradient(180deg, rgba(216, 168, 79, 0.06), transparent 28%), var(--h7-bg);
+  color: var(--h7-text);
+}
+
+.adminWorkspace {
+  overflow-y: auto;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 36%), var(--h7-bg);
+}
+
+.adminSidebar {
+  padding: 18px 12px;
+  background: #050608;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 18px 0 42px rgba(0, 0, 0, 0.42);
+}
+
+.sidebarLogo {
+  width: 56px;
+  border-radius: 20px;
+  border-color: rgba(216, 168, 79, 0.44);
+  background: linear-gradient(145deg, rgba(216, 168, 79, 0.2), rgba(255, 255, 255, 0.04));
+  color: var(--h7-gold-2);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.sidebarItem,
+.sidebarItemActive {
+  min-height: 62px;
+  border: 1px solid transparent;
+  border-radius: 22px;
+  color: rgba(246, 241, 231, 0.46);
+}
+
+.sidebarItemActive {
+  border-color: rgba(216, 168, 79, 0.42);
+  background: rgba(216, 168, 79, 0.16);
+  color: var(--h7-text);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 18px 32px rgba(0, 0, 0, 0.26);
+}
+
+.topStatusBar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(5, 6, 8, 0.88);
+  backdrop-filter: blur(16px);
+}
+
+.commandTopbar {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px clamp(18px, 2vw, 30px);
+}
+
+.commandTopbar h1 {
+  margin: 2px 0 0;
+  color: var(--h7-text);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.eyebrow {
+  color: var(--h7-gold);
+}
+
+.telemetryStrip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(112px, 1fr));
+  gap: 10px;
+}
+
+.telemetryChip,
+.telemetryChipOk,
+.telemetryChipWarn,
+.telemetryChipAlert {
+  display: grid;
+  gap: 5px;
+  min-height: 64px;
+  padding: 11px 13px;
+  border: 1px solid var(--h7-line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--h7-text);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.telemetryChip span,
+.telemetryChipOk span,
+.telemetryChipWarn span,
+.telemetryChipAlert span {
+  color: var(--h7-muted);
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.telemetryChip strong,
+.telemetryChipOk strong,
+.telemetryChipWarn strong,
+.telemetryChipAlert strong {
+  color: var(--h7-text);
+  font-size: 12px;
+  font-weight: 950;
+  line-height: 1.16;
+}
+
+.telemetryChipOk {
+  border-color: rgba(98, 217, 130, 0.32);
+}
+
+.telemetryChipOk strong {
+  color: #a4f2b9;
+}
+
+.telemetryChipWarn {
+  border-color: rgba(242, 184, 75, 0.38);
+}
+
+.telemetryChipWarn strong {
+  color: #ffd88d;
+}
+
+.telemetryChipAlert {
+  border-color: rgba(243, 107, 107, 0.48);
+  background: rgba(243, 107, 107, 0.08);
+}
+
+.telemetryChipAlert strong {
+  color: #ff9a9a;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.headerActions a,
+.headerActions button {
+  min-height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--h7-text);
+  font-size: 12px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.hardwareWarning {
+  margin: 16px clamp(18px, 2vw, 30px) 0;
+  border: 1px solid rgba(242, 184, 75, 0.38);
+  border-radius: 22px;
+  background: rgba(242, 184, 75, 0.12);
+  color: #ffe5ad;
+}
+
+.adminCommandGrid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(330px, 420px);
+  gap: 18px;
+  padding: 18px clamp(18px, 2vw, 30px) 10px;
+}
+
+.mainActionPanel,
+.operationPanel,
+.decisionPanel,
+.stagePreviewPanel {
+  border: 1px solid var(--h7-line);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035)), var(--h7-panel);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.heroCommand {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, 260px);
+  gap: 18px;
+  align-items: center;
+  min-height: 180px;
+  padding: 26px;
+}
+
+.heroCommandCopy {
+  display: grid;
+  gap: 10px;
+}
+
+.heroCommandCopy span,
+.phaseReadout span {
+  color: var(--h7-gold);
+  font-size: 11px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.heroCommandCopy strong {
+  max-width: 720px;
+  color: var(--h7-text);
+  font-size: clamp(30px, 4vw, 58px);
+  font-weight: 950;
+  line-height: 0.98;
+}
+
+.heroCommandCopy small,
+.phaseReadout small {
+  color: var(--h7-muted);
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.heroCommandAction {
+  display: grid;
+  gap: 10px;
+}
+
+.commandButtonPrimary,
+.commandButton,
+.commandButtonGhost,
+.contextActionRail button,
+.operationAudio button,
+.decisionActions button {
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.commandButtonPrimary {
+  min-height: 76px;
+  border: 1px solid rgba(243, 213, 141, 0.62);
+  background: linear-gradient(180deg, #f2cf7a, #c9902f);
+  color: #151007;
+  box-shadow: 0 22px 45px rgba(216, 168, 79, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.commandButtonPrimary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.commandButtonPrimary:disabled {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(246, 241, 231, 0.42);
+  box-shadow: none;
+  transform: none;
+}
+
+.commandButton,
+.contextActionRail button,
+.operationAudio button,
+.decisionActions .commandButton {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--h7-text);
+}
+
+.commandButtonGhost {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: var(--h7-muted);
+}
+
+.contextActionRail button:hover,
+.operationAudio button:hover,
+.decisionActions button:hover,
+.commandButton:hover,
+.commandButtonGhost:hover {
+  border-color: rgba(216, 168, 79, 0.5);
+  background: rgba(216, 168, 79, 0.1);
+  color: var(--h7-text);
+}
+
+.operationConsole {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+}
+
+.flowTimeline {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.flowTimeline span {
+  min-height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(246, 241, 231, 0.62);
+  font-size: 10px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.operationDeck {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.phaseReadout {
+  display: grid;
+  gap: 8px;
+  min-height: 132px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 24px;
+  background: var(--h7-panel-2);
+}
+
+.phaseReadout strong {
+  color: var(--h7-text);
+  font-size: clamp(22px, 2.6vw, 38px);
+  font-weight: 950;
+  line-height: 1;
+}
+
+.contextActionRail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.operationAudio {
+  display: grid;
+  grid-template-columns: auto auto minmax(180px, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.operationAudio label {
+  display: grid;
+  gap: 4px;
+  color: var(--h7-muted);
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.audioLink {
+  color: var(--h7-gold-2);
+}
+
+.previewHeader strong,
+.decisionPanel h2 {
+  color: var(--h7-text);
+}
+
+.tvPreview {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 22px;
+  background: #06070a;
+}
+
+.stats div {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.stats dt {
+  color: var(--h7-muted);
+}
+
+.stats dd {
+  color: var(--h7-text);
+}
+
+.answerBox {
+  border-color: rgba(216, 168, 79, 0.22);
+  background: rgba(216, 168, 79, 0.08);
+}
+
+.answerBox span {
+  color: var(--h7-gold);
+}
+
+.answerBox strong,
+.answerBox small {
+  color: var(--h7-text);
+}
+
+.decisionActions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.correctButton,
+.wrongButton,
+.selectedChoice {
+  min-height: 58px;
+  border-radius: 18px;
+  color: #081009;
+}
+
+.correctButton {
+  border: 1px solid rgba(98, 217, 130, 0.55);
+  background: linear-gradient(180deg, #93f2ab, #48b866);
+}
+
+.wrongButton {
+  border: 1px solid rgba(243, 107, 107, 0.56);
+  background: linear-gradient(180deg, #ff9f9f, #e65454);
+}
+
+.selectedChoice {
+  border: 1px solid rgba(243, 213, 141, 0.72);
+  background: linear-gradient(180deg, #f2cf7a, #c9902f);
+}
+
+.decisionStandby,
+.countdownPill,
+.tribunalMeta {
+  color: var(--h7-muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.countdownPill {
+  display: inline-grid;
+  min-height: 44px;
+  place-items: center;
+  padding: 0 16px;
+  border: 1px solid rgba(216, 168, 79, 0.28);
+  border-radius: 999px;
+  background: rgba(216, 168, 79, 0.08);
+  color: var(--h7-gold-2);
+}
+
+.advanced {
+  margin: 16px clamp(18px, 2vw, 30px) 36px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--h7-text);
+}
+
+.advanced summary {
+  color: var(--h7-text);
+}
+
+.grid .panel {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.grid h2,
+.grid h3,
+.grid p,
+.grid label {
+  color: var(--h7-text);
+}
+
+.loginShell {
+  background: linear-gradient(135deg, rgba(216, 168, 79, 0.08), transparent 34%), #050608;
+  color: #f6f1e7;
+}
+
+.loginFrame {
+  width: min(1080px, 100%);
+  min-height: min(620px, calc(100vh - 48px));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 34px;
+  background: #0d0f14;
+  box-shadow: 0 36px 90px rgba(0, 0, 0, 0.48);
+}
+
+.loginShell .loginCard {
+  background: #f8f5ee;
+  color: #111;
+}
+
+.loginCard input {
+  min-height: 52px;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.loginCard button[type='submit'] {
+  min-height: 54px;
+  border-radius: 18px;
+  background: #050608;
+  color: #fff;
+}
+
+.loginBrand {
+  background: linear-gradient(145deg, rgba(216, 168, 79, 0.16), transparent 42%), #050608;
+}
+
+.loginBrand strong {
+  border-color: rgba(216, 168, 79, 0.5);
+  border-radius: 32px;
+  color: #f3d58d;
+}
+
+@media (max-width: 1100px) {
+  .commandTopbar {
+    grid-template-columns: 1fr;
+  }
+
+  .telemetryStrip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .adminCommandGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCommand {
+    grid-template-columns: 1fr;
+  }
+}
+
+.adminShell {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  overflow: hidden;
+  background: #f4f5f7;
+}
+
+.adminWorkspace {
+  min-width: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.adminSidebar {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 22px;
+  min-height: 100vh;
+  padding: 18px 10px;
+  background: linear-gradient(180deg, #050505, #141414);
+  color: #ffffff;
+  box-shadow: 12px 0 34px rgba(0, 0, 0, 0.08);
+}
+
+.sidebarLogo {
+  display: grid;
+  width: 52px;
+  aspect-ratio: 1;
+  place-items: center;
+  justify-self: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: 0.06em;
+}
+
+.sidebarNav {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.sidebarItem,
+.sidebarItemActive {
+  display: grid;
+  place-items: center;
+  min-height: 58px;
+  width: 100%;
+  border: 0;
+  border-radius: 18px;
+  background: transparent;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.05;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sidebarItemActive {
+  background: #ffffff;
+  color: #111111;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+}
+
+.topStatusBar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid #dedede;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+}
+
+.adminCommandGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  gap: 16px;
+  padding: 16px clamp(14px, 2vw, 28px) 6px;
+}
+
+.adminPrimaryColumn,
+.adminSideColumn {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-width: 0;
+}
+
+.mainActionPanel,
+.operationPanel,
+.decisionPanel,
+.stagePreviewPanel {
+  min-width: 0;
+  border: 1px solid #dedede;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(17, 24, 39, 0.07);
+}
+
+.stagePreviewPanel,
+.decisionPanel {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.decisionPanel h2 {
+  margin: 0;
+  color: #111;
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.previewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.previewHeader strong {
+  display: block;
+  margin-top: 3px;
+  color: #111;
+  font-size: 14px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.adminCommandGrid .primaryCommand,
+.adminCommandGrid .operationFocus {
+  margin: 0;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+}
+
+.adminCommandGrid .primaryCommand {
+  padding: 22px;
+}
+
+.adminCommandGrid .operationFocus {
+  padding: 14px;
+}
+
+.adminCommandGrid .operationBody {
+  border-radius: 18px;
+}
+
+.loginShell {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f5f5f5;
+}
+
+.loginFrame {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.88fr) minmax(320px, 1.12fr);
+  width: min(980px, 100%);
+  min-height: min(560px, calc(100vh - 48px));
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.09);
+}
+
+.loginShell .loginCard {
+  align-content: center;
+  width: 100%;
+  padding: clamp(32px, 5vw, 64px);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.loginBrand {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 18px;
+  min-height: 100%;
+  padding: clamp(34px, 5vw, 70px);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 36%),
+    #050505;
+  color: #fff;
+  text-align: center;
+}
+
+.loginBrand strong {
+  display: grid;
+  width: clamp(116px, 15vw, 180px);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  font-size: clamp(34px, 5vw, 62px);
+  font-weight: 950;
+  letter-spacing: 0.02em;
+}
+
+.loginBrand span {
+  max-width: 320px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+/* ── Login ── */
+
+.loginCard {
+  display: grid;
+  gap: 16px;
+  width: min(400px, 100%);
+  padding: 32px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.loginCard h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.loginCard label {
+  display: grid;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.loginCard input {
+  min-height: 40px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fafafa;
+  color: #111;
+  font: inherit;
+  padding: 8px 10px;
+}
+
+.loginCard input:focus {
+  outline: 2px solid #111;
+  outline-offset: -1px;
+}
+
+.loginCard button {
+  min-height: 40px;
+  border: none;
+  border-radius: 4px;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.loginCard button:hover {
+  background: #333;
+}
+
+.error {
+  margin: 0;
+  color: #d32f2f;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ── Eyebrow ── */
+
+.eyebrow {
+  color: #888;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Header ── */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px clamp(14px, 2.4vw, 32px);
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.headerActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.headerActions button,
+.headerActions a {
+  min-height: 30px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.headerActions button:hover,
+.headerActions a:hover {
+  background: #f0f0f0;
+  border-color: #111;
+}
+
+/* ── Operator Bar ── */
+
+.operatorBar {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.7fr) minmax(260px, 1.55fr) minmax(140px, 0.7fr) minmax(140px, 0.7fr);
+  gap: 8px;
+  padding: 10px clamp(14px, 2.4vw, 32px);
+  border-bottom: 1px solid #e5e5e5;
+  background: #fafafa;
+}
+
+.operatorBar div {
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.operatorBar span {
+  display: block;
+  color: #888;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.operatorBar strong {
+  display: block;
+  overflow: hidden;
+  margin-top: 4px;
+  color: #111;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hardwareWarning {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px clamp(14px, 2.4vw, 32px) 0;
+  padding: 12px 14px;
+  border: 1px solid #111;
+  border-radius: 6px;
+  background: #fff8d6;
+  color: #111;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.hardwareWarning button {
+  min-height: 34px;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 4px;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 7px 12px;
+  text-transform: uppercase;
+}
+
+/* ── Primary Command ── */
+
+.primaryCommand {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(260px, auto);
+  gap: 12px;
+  align-items: stretch;
+  margin: 12px clamp(14px, 2.4vw, 32px) 0;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.primaryCommand span,
+.primaryCommand small {
+  display: block;
+  color: #888;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.primaryCommand strong {
+  display: block;
+  margin: 6px 0;
+  color: #111;
+  font-size: clamp(16px, 1.8vw, 24px);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.primaryCommandActions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  gap: 8px;
+  min-width: min(420px, 100%);
+}
+
+.primaryCommandActions button {
+  min-height: 42px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 8px 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.primaryCommandActions button:hover {
+  background: #f0f0f0;
+  border-color: #111;
+}
+
+.primaryCommandActions .primaryAction {
+  border: none;
+  background: #111;
+  color: #fff;
+}
+
+.primaryCommandActions .primaryAction:hover {
+  background: #333;
+}
+
+.primaryCommandActions button:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+/* ── Operation Focus ── */
+
+.operationFocus {
+  display: grid;
+  gap: 10px;
+  margin: 12px clamp(14px, 2.4vw, 32px) 0;
+}
+
+.flowTimeline {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.flowTimeline span {
+  min-width: 0;
+  padding: 6px 4px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background: #fafafa;
+  color: #888;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.operationBody {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.6fr) minmax(360px, 1.4fr) minmax(220px, 0.7fr);
+  gap: 10px;
+  align-items: stretch;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.operationState {
+  display: grid;
+  align-content: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.operationState span,
+.operationState small,
+.operationAudio span {
+  color: #888;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.operationState strong {
+  color: #111;
+  font-size: clamp(16px, 1.6vw, 24px);
+  font-weight: 800;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.operationActions,
+.operationAudio {
+  display: grid;
+  gap: 6px;
+}
+
+.operationActions {
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+}
+
+.operationAudio {
+  grid-template-columns: 1fr;
+}
+
+.operationActions button,
+.operationAudio button,
+.operationAudio a {
+  min-height: 36px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 6px 8px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.operationActions button:hover,
+.operationAudio button:hover {
+  background: #f0f0f0;
+  border-color: #111;
+}
+
+.operationActions .primaryAction {
+  border: none;
+  background: #111;
+  color: #fff;
+}
+
+.operationActions .primaryAction:hover {
+  background: #333;
+}
+
+.operationActions .selectedChoice {
+  border: 2px solid #111;
+  background: #f0f0f0;
+  color: #111;
+  font-weight: 800;
+}
+
+.operationActions button:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+.operationAudio label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.operationAudio input {
+  width: 100%;
+  accent-color: #111;
+}
+
+/* ── Advanced / Technical ── */
+
+.advanced {
+  margin: 10px clamp(14px, 2.4vw, 32px) 18px;
+}
+
+.advanced summary {
+  cursor: pointer;
+  min-height: 36px;
+  padding: 10px 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fafafa;
+  color: #666;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.advanced summary:hover {
+  background: #f0f0f0;
+  color: #111;
+}
+
+.advanced:not([open]) .grid {
+  display: none;
+}
+
+/* ── Grid / Panels ── */
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.88fr) minmax(320px, 1.08fr) minmax(300px, 1fr);
+  gap: 10px;
+  padding: clamp(10px, 2vw, 22px);
+}
+
+.panel {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.panel h2 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #333;
+}
+
+/* ── Stats (data pairs) ── */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  margin: 0;
+}
+
+.stats div {
+  min-width: 0;
+  border: 1px solid #f0f0f0;
+  border-radius: 3px;
+  background: #fafafa;
+  padding: 5px 6px;
+}
+
+.stats dt {
+  color: #999;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.stats dd {
+  overflow: hidden;
+  margin: 2px 0 0;
+  color: #222;
+  font-size: 12px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Action buttons inside panels ── */
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(116px, 1fr));
+  gap: 5px;
+}
+
+.actions button {
+  min-height: 30px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 5px 8px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.actions button:hover {
+  background: #f0f0f0;
+  border-color: #111;
+}
+
+.actions .primaryAction {
+  border: none;
+  background: #111;
+  color: #fff;
+}
+
+.actions .primaryAction:hover {
+  background: #333;
+}
+
+.actions button:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+/* ── Audio Panel ── */
+
+.audioPanel {
+  gap: 8px;
+}
+
+.audioControls {
+  display: grid;
+  grid-template-columns: minmax(108px, auto) minmax(80px, auto) minmax(136px, 1fr);
+  gap: 5px;
+  align-items: stretch;
+}
+
+.audioControls button,
+.audioLink {
+  min-height: 30px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.audioControls button:hover,
+.audioLink:hover {
+  background: #f0f0f0;
+  border-color: #111;
+}
+
+.audioControls .primaryAction,
+.audioLink {
+  border: none;
+  background: #111;
+  color: #fff;
+}
+
+.audioControls label {
+  display: grid;
+  grid-template-columns: auto minmax(70px, 1fr);
+  gap: 8px;
+  align-items: center;
+  min-height: 30px;
+  padding: 4px 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.audioControls span {
+  color: #888;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.audioControls input {
+  width: 100%;
+  accent-color: #111;
+}
+
+/* ── Tribunal Panel ── */
+
+.tribunalPanel {
+  gap: 10px;
+  border-color: #ff9800;
+  background: #fffbf0;
+}
+
+.tribunalPanel h2 {
+  color: #e65100;
+}
+
+/* ── Final Show Panel ── */
+
+.finalShowPanel {
+  gap: 10px;
+  border-color: #42a5f5;
+  background: #f5faff;
+}
+
+.finalShowPanel h2 {
+  color: #1565c0;
+}
+
+/* ── Preview Panel ── */
+
+.previewPanel {
+  grid-row: span 2;
+}
+
+.tvPreview {
+  display: grid;
+  height: 190px;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: #1a1a1a;
+}
+
+.previewPlaceholder {
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  padding: 16px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* ── Answer Box ── */
+
+.answerBox {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.answerBox span,
+.answerBox small {
+  overflow: hidden;
+  color: #888;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.answerBox strong {
+  color: #111;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+/* ── Choice Controls ── */
+
+.choiceControls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 54px)) minmax(128px, auto) minmax(104px, auto);
+  gap: 5px;
+  align-items: stretch;
+}
+
+.choiceControls button {
+  min-height: 32px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 6px 8px;
+  text-transform: uppercase;
+}
+
+.choiceControls button:hover {
+  background: #f0f0f0;
+  border-color: #111;
+}
+
+.choiceControls .selectedChoice {
+  border: 2px solid #111;
+  background: #f0f0f0;
+  color: #111;
+  font-weight: 800;
+}
+
+.choiceControls .primaryAction {
+  border: none;
+  background: #111;
+  color: #fff;
+}
+
+/* ── History List ── */
+
+.historyList {
+  display: grid;
+  gap: 4px;
+  overflow: auto;
+  max-height: 118px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.historyList li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  padding: 5px 6px;
+  border: 1px solid #f0f0f0;
+  border-radius: 3px;
+  background: #fafafa;
+}
+
+.historyList span,
+.historyList small {
+  overflow: hidden;
+  color: #555;
+  font-size: 11px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── Log Panel ── */
+
+.logPanel {
+  max-height: 300px;
+}
+
+.logList {
+  display: grid;
+  gap: 3px;
+  overflow: auto;
+  max-height: 220px;
+  margin: 0;
+  padding-left: 20px;
+  color: #555;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Cascadia Code', 'Fira Code', monospace;
+}
+
+/* ── Help Modal ── */
+
+.helpBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.helpModal {
+  display: grid;
+  gap: 14px;
+  width: min(720px, 94vw);
+  max-height: min(720px, 90vh);
+  overflow: auto;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.helpHeader {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.helpHeader h2 {
+  margin: 4px 0 0;
+  color: #111;
+  font-size: 20px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.helpHeader button {
+  min-height: 32px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  text-transform: uppercase;
+}
+
+.helpHeader button:hover {
+  background: #f0f0f0;
+}
+
+.helpSearch {
+  display: grid;
+  gap: 6px;
+  color: #888;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.helpSearch input {
+  min-height: 36px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fafafa;
+  color: #111;
+  font: inherit;
+  padding: 8px 10px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.helpSearch input:focus {
+  outline: 2px solid #111;
+  outline-offset: -1px;
+}
+
+.helpTopics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.helpTopics article {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.helpTopics h3,
+.helpTopics p,
+.emptyHelp {
+  margin: 0;
+}
+
+.helpTopics h3 {
+  color: #111;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.helpTopics p,
+.emptyHelp {
+  margin-top: 6px;
+  color: #555;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* ── Danger buttons ── */
+
+.dangerAction {
+  border: 1px solid #ef5350 !important;
+  background: #fff5f5 !important;
+  color: #c62828 !important;
+}
+
+.dangerAction:hover {
+  background: #ffebee !important;
+  border-color: #c62828 !important;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 1280px) {
+  .adminCommandGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 320px);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .primaryCommand,
+  .operationBody {
+    grid-template-columns: 1fr;
+  }
+
+  .flowTimeline {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .adminShell {
+    grid-template-columns: 1fr;
+  }
+
+  .adminSidebar {
+    min-height: auto;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
+    padding: 10px;
+  }
+
+  .sidebarNav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sidebarItem,
+  .sidebarItemActive {
+    min-height: 42px;
+  }
+
+  .adminCommandGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .loginFrame {
+    grid-template-columns: 1fr;
+  }
+
+  .loginBrand {
+    min-height: 220px;
+  }
+
+  .header,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .operatorBar,
+  .primaryCommand,
+  .flowTimeline,
+  .operationBody,
+  .helpTopics {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .choiceControls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .audioControls {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Harness 7 final override: must stay after legacy Admin rules. */
+.adminShell {
+  --h7-bg: #050608;
+  --h7-panel: #0d0f14;
+  --h7-panel-2: #151922;
+  --h7-line: rgba(255, 255, 255, 0.1);
+  --h7-text: #f6f1e7;
+  --h7-muted: rgba(246, 241, 231, 0.62);
+  --h7-gold: #d8a84f;
+  --h7-gold-2: #f3d58d;
+  grid-template-columns: 92px minmax(0, 1fr);
+  background: linear-gradient(180deg, rgba(216, 168, 79, 0.06), transparent 28%), var(--h7-bg);
+  color: var(--h7-text);
+}
+
+.adminWorkspace {
+  overflow-y: auto;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 36%), #050608;
+}
+
+.adminSidebar {
+  padding: 18px 12px;
+  background: #050608;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 18px 0 42px rgba(0, 0, 0, 0.42);
+}
+
+.sidebarLogo {
+  border-color: rgba(216, 168, 79, 0.44);
+  background: linear-gradient(145deg, rgba(216, 168, 79, 0.2), rgba(255, 255, 255, 0.04));
+  color: var(--h7-gold-2);
+}
+
+.sidebarItemActive {
+  border-color: rgba(216, 168, 79, 0.42);
+  background: rgba(216, 168, 79, 0.16);
+  color: var(--h7-text);
+}
+
+.topStatusBar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(5, 6, 8, 0.9);
+}
+
+.commandTopbar {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px clamp(18px, 2vw, 30px);
+}
+
+.commandTopbar h1,
+.previewHeader strong,
+.decisionPanel h2,
+.stats dd,
+.answerBox strong,
+.answerBox small {
+  color: var(--h7-text);
+}
+
+.telemetryStrip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(112px, 1fr));
+  gap: 10px;
+}
+
+.telemetryChip,
+.telemetryChipOk,
+.telemetryChipWarn,
+.telemetryChipAlert {
+  display: grid;
+  gap: 5px;
+  min-height: 64px;
+  padding: 11px 13px;
+  border: 1px solid var(--h7-line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--h7-text);
+}
+
+.telemetryChip span,
+.telemetryChipOk span,
+.telemetryChipWarn span,
+.telemetryChipAlert span,
+.stats dt {
+  color: var(--h7-muted);
+}
+
+.telemetryChipOk {
+  border-color: rgba(98, 217, 130, 0.32);
+}
+
+.telemetryChipOk strong {
+  color: #a4f2b9;
+}
+
+.telemetryChipWarn {
+  border-color: rgba(242, 184, 75, 0.38);
+}
+
+.telemetryChipWarn strong {
+  color: #ffd88d;
+}
+
+.telemetryChipAlert {
+  border-color: rgba(243, 107, 107, 0.48);
+  background: rgba(243, 107, 107, 0.08);
+}
+
+.telemetryChipAlert strong {
+  color: #ff9a9a;
+}
+
+.headerActions a,
+.headerActions button {
+  border-color: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--h7-text);
+}
+
+.hardwareWarning {
+  margin: 16px clamp(18px, 2vw, 30px) 0;
+  border-color: rgba(242, 184, 75, 0.38);
+  border-radius: 22px;
+  background: rgba(242, 184, 75, 0.12);
+  color: #ffe5ad;
+}
+
+.adminCommandGrid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(330px, 420px);
+  gap: 18px;
+  padding: 18px clamp(18px, 2vw, 30px) 10px;
+}
+
+.mainActionPanel,
+.operationPanel,
+.decisionPanel,
+.stagePreviewPanel {
+  border: 1px solid var(--h7-line);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035)), var(--h7-panel);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.heroCommand {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, 260px);
+  gap: 18px;
+  align-items: center;
+  min-height: 180px;
+  padding: 26px;
+}
+
+.heroCommandCopy {
+  display: grid;
+  gap: 10px;
+}
+
+.heroCommandCopy span,
+.phaseReadout span,
+.answerBox span,
+.eyebrow {
+  color: var(--h7-gold);
+}
+
+.heroCommandCopy strong {
+  color: var(--h7-text);
+  font-size: clamp(30px, 4vw, 58px);
+  font-weight: 950;
+  line-height: 0.98;
+}
+
+.heroCommandCopy small,
+.phaseReadout small {
+  color: var(--h7-muted);
+}
+
+.commandButtonPrimary,
+.commandButton,
+.commandButtonGhost,
+.contextActionRail button,
+.operationAudio button,
+.decisionActions button {
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.commandButtonPrimary {
+  min-height: 76px;
+  border: 1px solid rgba(243, 213, 141, 0.62);
+  background: linear-gradient(180deg, #f2cf7a, #c9902f);
+  color: #151007;
+  box-shadow: 0 22px 45px rgba(216, 168, 79, 0.22);
+  transition: border-color 140ms ease, filter 140ms ease, background 140ms ease;
+}
+
+.commandButtonPrimary:hover {
+  transform: none;
+  filter: brightness(1.04);
+}
+
+.commandButton,
+.contextActionRail button,
+.operationAudio button,
+.decisionActions .commandButton {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--h7-text);
+}
+
+.commandButtonGhost {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: var(--h7-muted);
+}
+
+.operationConsole {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+}
+
+.flowTimeline {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.flowTimeline span {
+  min-height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(246, 241, 231, 0.62);
+}
+
+.operationDeck {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.phaseReadout {
+  display: grid;
+  gap: 8px;
+  min-height: 132px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 24px;
+  background: var(--h7-panel-2);
+}
+
+.phaseReadout strong {
+  color: var(--h7-text);
+  font-size: clamp(22px, 2.6vw, 38px);
+}
+
+.contextActionRail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.operationAudio {
+  grid-template-columns: auto auto minmax(180px, 1fr);
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.audioLink {
+  color: var(--h7-gold-2);
+}
+
+.tvPreview {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 22px;
+  background: #06070a;
+}
+
+.stats div {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.answerBox {
+  border-color: rgba(216, 168, 79, 0.22);
+  background: rgba(216, 168, 79, 0.08);
+}
+
+.decisionActions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.correctButton,
+.wrongButton,
+.selectedChoice {
+  min-height: 58px;
+  border-radius: 18px;
+  color: #081009;
+}
+
+.correctButton {
+  border: 1px solid rgba(98, 217, 130, 0.55);
+  background: linear-gradient(180deg, #93f2ab, #48b866);
+}
+
+.wrongButton {
+  border: 1px solid rgba(243, 107, 107, 0.56);
+  background: linear-gradient(180deg, #ff9f9f, #e65454);
+}
+
+.selectedChoice {
+  border: 1px solid rgba(243, 213, 141, 0.72);
+  background: linear-gradient(180deg, #f2cf7a, #c9902f);
+}
+
+.decisionStandby,
+.countdownPill,
+.tribunalMeta {
+  color: var(--h7-muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.advanced {
+  margin: 16px clamp(18px, 2vw, 30px) 36px;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--h7-text);
+}
+
+.advanced summary,
+.grid h2,
+.grid h3,
+.grid p,
+.grid label {
+  color: var(--h7-text);
+}
+
+.grid .panel {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.loginShell {
+  background: linear-gradient(135deg, rgba(216, 168, 79, 0.08), transparent 34%), #050608;
+  color: #f6f1e7;
+}
+
+.loginFrame {
+  width: min(1080px, 100%);
+  min-height: min(620px, calc(100vh - 48px));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 34px;
+  background: #0d0f14;
+  box-shadow: 0 36px 90px rgba(0, 0, 0, 0.48);
+}
+
+.loginShell .loginCard {
+  background: #f8f5ee;
+  color: #111;
+}
+
+.loginBrand {
+  background: linear-gradient(145deg, rgba(216, 168, 79, 0.16), transparent 42%), #050608;
+}
+
+.loginBrand strong {
+  border-color: rgba(216, 168, 79, 0.5);
+  border-radius: 32px;
+  color: #f3d58d;
+}
+
+@media (max-width: 1100px) {
+  .commandTopbar,
+  .adminCommandGrid,
+  .heroCommand {
+    grid-template-columns: 1fr;
+  }
+
+  .telemetryStrip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Harness 9.1: operacao real, reset visivel e reducao de residuos claros no Admin. */
+.adminShell {
+  background: #050608;
+  color: var(--h7-text);
+}
+
+.adminWorkspace {
+  background:
+    linear-gradient(135deg, rgba(216, 168, 79, 0.05), transparent 34%),
+    #050608;
+}
+
+.hardwareResetButton {
+  min-height: 58px;
+  border: 1px solid rgba(242, 184, 75, 0.58);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(242, 184, 75, 0.22), rgba(242, 184, 75, 0.1)),
+    rgba(255, 255, 255, 0.055);
+  color: #ffe5ad;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.hardwareResetButton:hover {
+  border-color: rgba(242, 184, 75, 0.78);
+  background: rgba(242, 184, 75, 0.18);
+}
+
+.hardwareResetButton:disabled {
+  opacity: 0.5;
+}
+
+.panel,
+.grid .panel,
+.mainActionPanel,
+.operationPanel,
+.decisionPanel,
+.stagePreviewPanel,
+.advanced {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.028)),
+    #0d0f14;
+  color: var(--h7-text);
+}
+
+.panel h2,
+.panel h3,
+.panel p,
+.panel label,
+.panel span,
+.panel small,
+.grid h2,
+.grid h3,
+.grid p,
+.grid label {
+  color: var(--h7-text);
+}
+
+.helpModal {
+  border: 1px solid rgba(216, 168, 79, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035)),
+    #0d0f14;
+  color: var(--h7-text);
+}
+
+.helpHeader h2,
+.helpTopics h3,
+.helpTopics p,
+.emptyHelp {
+  color: var(--h7-text);
+}
+
+.helpHeader button,
+.helpSearch input,
+.helpTopics article {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--h7-text);
+}
+
+.helpSearch {
+  color: var(--h7-muted);
+}
+
+.helpTopics article {
+  border-radius: 18px;
+}

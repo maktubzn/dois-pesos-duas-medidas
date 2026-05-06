@@ -1,0 +1,110 @@
+.timer {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(18px, 3vh, 34px);
+  z-index: 23;
+  display: grid;
+  grid-template-columns: minmax(260px, 34vw) auto;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translate(-50%, 12px);
+  pointer-events: none;
+  --timer-scale: 1;
+  transition:
+    opacity 360ms ease,
+    transform 360ms ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.track {
+  position: relative;
+  height: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(111, 181, 226, 0.42);
+  background:
+    linear-gradient(90deg, rgba(8, 19, 30, 0.94), rgba(4, 7, 12, 0.96)),
+    #05070a;
+  box-shadow:
+    inset 0 0 12px rgba(0, 0, 0, 0.8),
+    0 0 18px rgba(49, 104, 142, 0.16);
+}
+
+.track::before,
+.track::after {
+  content: "";
+  position: absolute;
+  inset-block: 2px;
+  width: 1px;
+  background: rgba(229, 238, 246, 0.22);
+}
+
+.track::before {
+  left: 33.33%;
+}
+
+.track::after {
+  left: 66.66%;
+}
+
+.hourglass {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform: scaleX(var(--timer-scale));
+  transform-origin: left center;
+  background:
+    linear-gradient(90deg, rgba(85, 169, 222, 0.92), rgba(240, 196, 79, 0.74)),
+    #55a9de;
+  transition: transform 280ms linear;
+}
+
+.hourglass::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  right: 0;
+  width: 28px;
+  background: linear-gradient(90deg, transparent, rgba(241, 247, 252, 0.48));
+  opacity: 0.74;
+}
+
+.readout {
+  display: grid;
+  min-width: 46px;
+  min-height: 34px;
+  place-items: center;
+  border: 1px solid rgba(111, 181, 226, 0.36);
+  background: rgba(0, 0, 0, 0.56);
+  color: rgba(241, 247, 252, 0.96);
+  font-size: clamp(18px, 1.6vw, 28px);
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.paused .hourglass {
+  transition-duration: 1ms;
+}
+
+.timeUp .hourglass {
+  background: linear-gradient(90deg, rgba(126, 34, 42, 0.92), rgba(240, 196, 79, 0.68));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timer,
+  .hourglass {
+    transition-duration: 1ms;
+  }
+}
+
+@media (max-width: 980px) {
+  .timer {
+    grid-template-columns: minmax(220px, 62vw) auto;
+    bottom: 18px;
+  }
+}

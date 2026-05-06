@@ -1,0 +1,15 @@
+{
+  "name": "dois-pesos-arduino-virtual",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start": "node cli.mjs",
+    "list": "node cli.mjs --list",
+    "self-test": "node self-test.mjs",
+    "help": "node cli.mjs --help"
+  },
+  "dependencies": {
+    "serialport": "^13.0.0"
+  }
+}

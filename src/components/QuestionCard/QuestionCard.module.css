@@ -1,0 +1,166 @@
+.card {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  color: rgba(241, 231, 207, 0.96);
+}
+
+.copyBlock {
+  min-width: 0;
+}
+
+.kicker {
+  display: block;
+  margin-bottom: 10px;
+  color: #7bffac;
+  font-size: clamp(11px, 0.82vw, 15px);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.prompt,
+.empty {
+  display: block;
+  max-height: 5.4em;
+  overflow-wrap: anywhere;
+  overflow: hidden;
+  color: rgba(241, 231, 207, 0.98);
+  font-size: clamp(20px, 1.86vw, 38px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.imageMode {
+  grid-template-columns: minmax(0, 1fr) minmax(170px, 34%);
+  align-items: center;
+  gap: clamp(18px, 2vw, 34px);
+}
+
+.imageFrame {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  place-items: center;
+  overflow: hidden;
+}
+
+.imageFrame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.52));
+}
+
+.choiceMode {
+  align-content: center;
+  gap: clamp(14px, 1.8vh, 22px);
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(10px, 1vw, 16px);
+  min-width: 0;
+}
+
+.options p {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 82px;
+  margin: 0;
+  padding: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(240, 196, 79, 0.28);
+  background: rgba(0, 0, 0, 0.24);
+  color: rgba(241, 231, 207, 0.9);
+  font-size: clamp(16px, 1.15vw, 22px);
+  font-weight: 900;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  text-align: left;
+}
+
+.options p > :last-child {
+  min-width: 0;
+  max-height: 4.7em;
+  overflow: hidden;
+}
+
+.options span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(123, 255, 172, 0.56);
+  color: #7bffac;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.tieBreaker .kicker {
+  color: #f0c44f;
+}
+
+.tieBreaker .options span {
+  border-color: rgba(240, 196, 79, 0.62);
+  color: #f0c44f;
+}
+
+.compact .kicker {
+  margin-bottom: 7px;
+  font-size: 10px;
+}
+
+.compact .prompt,
+.compact .empty {
+  font-size: clamp(18px, 1.25vw, 26px);
+}
+
+.compact.imageMode {
+  grid-template-columns: minmax(0, 1fr) minmax(92px, 28%);
+  gap: 12px;
+}
+
+.compact .options {
+  gap: 8px;
+}
+
+.compact .options p {
+  min-height: 52px;
+  padding: 9px;
+  font-size: 13px;
+}
+
+.compact .options span {
+  width: 26px;
+  height: 26px;
+  font-size: 13px;
+}
+
+@media (max-width: 980px) {
+  .imageMode {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .imageFrame {
+    max-height: 42%;
+  }
+
+  .options {
+    grid-template-columns: 1fr;
+  }
+}

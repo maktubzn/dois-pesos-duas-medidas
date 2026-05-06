@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-04-30T17:08:11.053Z",
+  "assets": [
+    {
+      "source": "public/img/bg-FNL1.png",
+      "target": "public/img-optimized/bg-FNL1.webp",
+      "kind": "image",
+      "sourceSize": 1871393,
+      "targetSize": 62900,
+      "savedBytes": 1808493,
+      "sourceSizeLabel": "1827.5 KB",
+      "targetSizeLabel": "61.4 KB"
+    },
+    {
+      "source": "public/img/bg-FNL2.png",
+      "target": "public/img-optimized/bg-FNL2.webp",
+      "kind": "image",
+      "sourceSize": 3675601,
+      "targetSize": 77930,
+      "savedBytes": 3597671,
+      "sourceSizeLabel": "3589.5 KB",
+      "targetSizeLabel": "76.1 KB"
+    },
+    {
+      "source": "public/img/logoinfo.png",
+      "target": "public/img-optimized/logoinfo.webp",
+      "kind": "image",
+      "sourceSize": 5773953,
+      "targetSize": 110374,
+      "savedBytes": 5663579,
+      "sourceSizeLabel": "5638.6 KB",
+      "targetSizeLabel": "107.8 KB"
+    },
+    {
+      "source": "public/img/02.png",
+      "target": "public/img-optimized/02.webp",
+      "kind": "image",
+      "sourceSize": 3427787,
+      "targetSize": 440788,
+      "savedBytes": 2986999,
+      "sourceSizeLabel": "3347.4 KB",
+      "targetSizeLabel": "430.5 KB"
+    },
+    {
+      "source": "public/img das perguntas/senhor-destino.png",
+      "target": "public/img das perguntas-optimized/senhor-destino.webp",
+      "kind": "image",
+      "sourceSize": 5427941,
+      "targetSize": 57774,
+      "savedBytes": 5370167,
+      "sourceSizeLabel": "5300.7 KB",
+      "targetSizeLabel": "56.4 KB"
+    },
+    {
+      "source": "public/img/video1.mp4",
+      "target": "public/img-optimized/video1.mp4",
+      "kind": "video",
+      "sourceSize": 2928480,
+      "targetSize": 586176,
+      "savedBytes": 2342304,
+      "sourceSizeLabel": "2859.8 KB",
+      "targetSizeLabel": "572.4 KB"
+    },
+    {
+      "source": "public/img/BGVIDEO.mp4",
+      "target": "public/img-optimized/BGVIDEO.mp4",
+      "kind": "video",
+      "sourceSize": 2860671,
+      "targetSize": 565446,
+      "savedBytes": 2295225,
+      "sourceSizeLabel": "2793.6 KB",
+      "targetSizeLabel": "552.2 KB"
+    },
+    {
+      "source": "public/img-optimized/video1.mp4",
+      "target": "public/img-optimized/video1-poster.webp",
+      "kind": "poster",
+      "sourceSize": 586176,
+      "targetSize": 53536,
+      "savedBytes": 532640,
+      "sourceSizeLabel": "572.4 KB",
+      "targetSizeLabel": "52.3 KB"
+    }
+  ]
+}
