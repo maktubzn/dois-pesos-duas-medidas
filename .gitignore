@@ -1,0 +1,41 @@
+# Dependencias
+node_modules/
+
+# Builds e saidas geradas
+dist/
+build/
+.vite/
+
+# Testes, relatorios e caches
+coverage/
+test-results/
+playwright-report/
+.playwright-mcp/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Backups e residuos locais
+_backups/
+backup/
+residuos/
+_residuos/
+
+# Ambiente local
+.env
+.env.*
+!.env.example
+
+# Sistema/editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Temporarios
+*.tmp
+*.temp
+*.bak
+*.swp
